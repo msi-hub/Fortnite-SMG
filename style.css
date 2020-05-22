@@ -1,0 +1,224 @@
+@font-face {
+   font-family: Burbank;
+   src: url(fonts/BurbankBigCondensed-Bold.otf);
+}
+body {
+  margin: 0px;
+  overflow: hidden;
+  font-family: Segoe UI;
+  color: #3d3d3d;
+}
+h1{
+  font-family: Burbank;
+  font-size: +4em;
+  margin-bottom: -40px;
+  margin-top: 165px;
+}
+h3{
+  font-size: +2em;
+  font-weight:600;
+}
+.main {
+  float: left;
+  width: 56.25%;
+  height: 100%;
+  padding: 0px;
+  overflow: hidden;
+  margin: 0px;
+}
+.right {
+  background-color: white;
+  float: left;
+  width: 43.75%;
+  padding: 40px 65px 40px 65px;
+  margin: 0px;
+}
+* {
+  box-sizing: border-box;
+}
+#top{
+  width: 100%;
+  font-style: italic;
+  font-size: small;
+
+}
+#header{
+  width: 79%;
+  border: 0px solid black;
+  display:inline-block;
+
+}
+
+#togle{
+  border: 0px solid black;
+  display:inline-block;
+  text-align: right;
+}
+
+#desc{
+  font-family:Segoe UI;
+  font-size: +1.5em;
+  font-weight: lighter;
+}
+#crdt{
+  width: 100%;
+  font-style: italic;
+  font-size: small;
+  text-align: right;
+  margin-top: 175px;
+}
+#err{
+  width: 100%;
+  font-style: italic;
+  font-size: small;
+  text-align: right;
+  color: red;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 1px;
+  background-color: #3d3d3d;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #3d3d3d;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #3d3d3d;
+}
+
+input:checked + .slider:before {
+  background-color: #fff;
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  border: 0.5px solid #3d3d3d;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 0px dotted #3d3d3d;
+}
+
+.tooltip .tooltiptext {
+  visibility: visible;
+  width: 120px;
+  background-color: #3d3d3d;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #3d3d3d transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-size: +1em;
+  box-sizing: border-box;
+  color: #3d3d3d;
+  border: 2px solid #A9A9A9;
+}
+
+.genMap {
+  background-color: #3d3d3d; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+@media only screen and (max-width:1090px) {
+  /* For tablets: */
+  .main {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+    padding: 40px 65px 40px 65px;
+  }
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;
+}
+::-moz-placeholder {
+   font-style: italic;
+}
+:-ms-input-placeholder {
+   font-style: italic;
+}
