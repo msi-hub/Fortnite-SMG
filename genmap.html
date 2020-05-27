@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Statistic Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/fsmgicon.png" type="image/png" sizes="64x64">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="script.js"></script>
+    <script src="p5.min.js"></script>
+    <script src="p5.clickable.js"></script>
+    <script>
+      console.log(fromApidata[0]);
+      console.log(fromApidata[1]);
+      console.log(fromApidata[2]);
+      console.log(fromApidata[3]);
+      console.log(fromApidata[4]);
+      console.log(fromApidata[5]);
+      console.log(fromApidata[6]);
+      console.log(fromApidata[7]);
+    </script>
+
+  </head>
+  <body onclick="hidetooltips();">
+    <div class="main" style="width:56.25%;">
+      <script>
+      var tileSize = 16;
+      var scl = 0.07;
+
+      var xRO, yRO, xTO, yTO, x, y;
+      var speed = 5;
+      var buffer = 10;
+
+      var w, h;
+
+      var tiles;
+
+      var sprites = new Array(4);
+      function setup() {
+        createCanvas(864, 864);
+        sprites[0] = loadImage("data/water.png");
+        sprites[1] = loadImage("data/sand.png");
+        sprites[2] = loadImage("data/grass.png");
+        sprites[3] = loadImage("data/forest.png");
+        var w = width/tileSize + buffer;
+        var h = height/tileSize + buffer;
+        tiles = w * h;
+        background("#0022FF");
+        noStroke();
+        colorMode(HSB);
+        drawTerrain();
+      }
+
+      function draw() {
+
+        drawTerrain();
+        image(sprites[1],10,10);
+      }
+
+      function drawTerrain() {
+        xRO = x % tileSize;
+        yRO = y % tileSize;
+        xTO = x/tileSize;
+        yTO = y/tileSize;
+        for(var i = 0; i < w; i ++) {
+          for(var j = 0; j < h; j ++) {
+            tiles[i + j * w] = getTile(i, j);
+          }
+        }
+        for(var i = 0; i < w; i ++) {
+          for(var j = 0; j < h; j ++) {
+            image(sprites[tiles[i + j * w]], (i - buffer/2) * tileSize - xRO, (j - buffer/2) * tileSize - yRO, tileSize, tileSize);
+          }
+        }
+      }
+
+      function getTile(x,y) {
+        var v = noise((xTO + x) * scl, (yTO + y) * scl);
+        if(v < 0.35) {
+          //water
+          return 0;
+        } else if(v < 0.5) {
+          //sand
+          return 1;
+        } else if(v < 0.7) {
+          //grass
+          return 2;
+        } else {
+          //forest
+          return 3;
+        }
+      }
+      </script></span>
+    </div>
+    <div class="right">
+      <div id="top">
+        <span id="header"><span id="annouceUser"></span></span>
+        <span="togle">
+          <span class="tooltip">Full-Screen<span id="hide" class="tooltiptext">Best in Full-Screen</span></span>
+            <label class="switch">
+              <input type="checkbox" onclick="checktogle();">
+              <span class="slider round"></span>
+            </label>
+        </span>
+      </div>
+      <h1 id="displayUser">FORTNITE SMG</h1>
+      <div style="width:100%; margin-top:85px;">
+      <div style="display:inline-block;"><p id="desc">Select mode:</p></div>
+        <div class="dropdown" style="float:right;">
+          <button class="dropbtn">Solo</button>
+            <div class="dropdown-content">
+            <a href="#">Solo</a>
+            <a href="#">Duo</a>
+            <a href="#">Squad</a>
+            </div>
+        </div>
+      </div>
+      <div id="err" style="text-align:left; color:#3d3d3d; margin-top:-20px;">Hover around the map to see specific statistics</div>
+      <div id="desc" style="margin-top: 95px;">
+      <span style="font-weight:bold;">Player Outlived</span><br/>
+      <span>Season: </span><span id="seas_s_Outlived"></span><br/>
+      <span>Lifetime: </span><span id="life_s_Outlived"></span>
+      </div>
+      <div id="crdt">Credit</div>
+    </div>
+  </body>
+  <script>
+    var greetUser = [
+      "A wild "+fromApidata[0]+" has appeared!",
+      "OMG! It's "+fromApidata[0]+"!!!",
+      "Who raised "+fromApidata[0]+"? They deserve a medal!",
+      fromApidata[0]+", you’re one of a kind!",
+      "I like your style, "+fromApidata[0]+"!",
+      "Everyday is just BLAH without "+fromApidata[0]+"!",
+      fromApidata[0]+", a Zombie apocalypse survivor!",
+      fromApidata[0]+", your name suits you to a T!",
+      fromApidata[0]+" actually sounds like a Pokemon, it's perfect!",
+      "On a scale from 1 to 10, "+fromApidata[0]+" is an 11!"
+      ];
+    var announceRan = Math.floor(Math.random() * 10);
+    //innerHTML
+    document.getElementById('annouceUser').innerHTML = greetUser[announceRan];
+    document.getElementById('displayUser').innerHTML = fromApidata[0];
+    document.getElementById('seas_s_Outlived').innerHTML = fromApidata[1];
+    document.getElementById('life_s_Outlived').innerHTML = fromApidata[2];
+    var elem = document.documentElement;
+    var tcheck;
+    var ton = 0;
+    var toff = 1;
+    function checktogle() {
+      tcheck = 0;
+      if (tcheck == ton){
+        openFullscreen();
+        tcheck= 1;
+      }
+      if (tcheck != 0){
+        closeFullscreen();
+        tcheck = 0;
+      }
+    }
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();}
+      else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();}
+      else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();}
+      else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();}
+    }
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();}
+      else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();}
+      else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();}
+      else if (document.msExitFullscreen) {
+        document.msExitFullscreen();}
+    }
+    function hidetooltips() {
+      document.getElementById('hide').style.display = "none";
+    }
+  </script>
+</html>

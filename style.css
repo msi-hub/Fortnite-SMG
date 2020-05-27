@@ -20,8 +20,6 @@ h3{
 }
 .main {
   float: left;
-  width: 56.25%;
-  height: 100%;
   padding: 0px;
   overflow: hidden;
   margin: 0px;
@@ -40,7 +38,6 @@ h3{
   width: 100%;
   font-style: italic;
   font-size: small;
-
 }
 #header{
   width: 79%;
@@ -182,6 +179,52 @@ input[type=text] {
   box-sizing: border-box;
   color: #3d3d3d;
   border: 2px solid #A9A9A9;
+}
+
+.dropbtn {
+  background-color: #3d3d3d;
+  color: white;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  min-width: 160px;
+  margin-top: 25px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #3d3d3d;
+  font-weight: bold;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #d3d3d3; color:#3d3d3d;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #d3d3d3;
+  color: #3d3d3d;
 }
 
 .genMap {
