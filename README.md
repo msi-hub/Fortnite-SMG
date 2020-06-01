@@ -35,7 +35,8 @@ Licence<br />
 
 ## Resource
 > Processing : https://processing.org/<br />
-> rapidApi : https://rapidapi.com/elreco/api/fortnite-api
+> RapidApi : https://rapidapi.com/elreco/api/fortnite-api
+> jQuery : https://jquery.com/
 
 ## Appendix
 > Adobe XD Prototype : https://xd.adobe.com/view/3d5a2fc1-bee1-4c3a-4c59-31ebec249b9c-4b6b/ <br/>
