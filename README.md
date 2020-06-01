@@ -20,14 +20,14 @@ Web API<br />
 > Fornite-API by elreco : https://rapidapi.com/elreco/api/fortnite-api
 
 Font<br />
-> Burbank Big Condensed Bold by Fonts Market : https://www.fontsmarket.com/font-details/burbank-big-condensed-bold
+> Burbank Big Condensed Bold by Fonts Market : https://www.fontsmarket.com/font-details/burbank-big-condensed-bold<br>
 > Lato by Google Fonts : https://fonts.google.com/specimen/Lato
 
 Icon<br />
 > Material Icons by Google : https://google.github.io/material-design-icons/
 
 Images<br />
-> Fortnite Chapter 2 Wallpaper : https://wallpapersden.com/fortnite-battle-royale-chapter-2-wallpaper
+> Fortnite Chapter 2 Wallpaper : https://wallpapersden.com/fortnite-battle-royale-chapter-2-wallpaper<br>
 > Fortnite Llama Wallpaper : https://dlpng.com/png/6412080
 
 Licence<br />
