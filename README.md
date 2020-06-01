@@ -35,7 +35,7 @@ Licence<br />
 
 ## Resource
 > Processing : https://processing.org/<br />
-> RapidApi : https://rapidapi.com/elreco/api/fortnite-api
+> RapidApi : https://rapidapi.com/elreco/api/fortnite-api<br>
 > jQuery : https://jquery.com/
 
 ## Appendix
