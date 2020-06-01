@@ -6,7 +6,7 @@
 
 Adobe XD : https://xd.adobe.com/view/3d5a2fc1-bee1-4c3a-4c59-31ebec249b9c-4b6b/
 
-## Reference
+## Source
 
 Processing : https://processing.org/<br />
 rapidApi : https://rapidapi.com/elreco/api/fortnite-api
