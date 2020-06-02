@@ -2,28 +2,38 @@
    font-family: Burbank;
    src: url(fonts/BurbankBigCondensed-Bold.otf);
 }
+
 body {
   margin: 0px;
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
   font-family: Segoe UI;
   color: #3d3d3d;
 }
+
 h1{
   font-family: Burbank;
   font-size: +4em;
   margin-bottom: -40px;
   margin-top: 165px;
 }
+
 h3{
   font-size: +2em;
   font-weight:600;
 }
+
+a {
+color: #3d3d3d;
+}
+
 .main {
   float: left;
   padding: 0px;
-  overflow: hidden;
   margin: 0px;
+  width: 56.25%;
 }
+
 .right {
   background-color: white;
   float: left;
@@ -31,9 +41,25 @@ h3{
   padding: 40px 65px 40px 65px;
   margin: 0px;
 }
+.mainc {
+  float: left;
+  padding: 0px;
+  margin: 0px;
+  width: 30%;
+}
+
+.rightc {
+  background-color: white;
+  float: left;
+  width: 70%;
+  padding: 40px 65px 40px 65px;
+  margin: 0px;
+}
+
 * {
   box-sizing: border-box;
 }
+
 #top{
   width: 100%;
   font-style: italic;
@@ -43,7 +69,6 @@ h3{
   width: 79%;
   border: 0px solid black;
   display:inline-block;
-
 }
 
 #togle{
@@ -57,13 +82,15 @@ h3{
   font-size: +1.5em;
   font-weight: lighter;
 }
+
 #crdt{
   width: 100%;
   font-style: italic;
   font-size: small;
   text-align: right;
-  margin-top: 175px;
+  margin-top: 95px;
 }
+
 #err{
   width: 100%;
   font-style: italic;
@@ -191,6 +218,7 @@ input[type=text] {
   font-weight: bold;
   min-width: 160px;
   margin-top: 25px;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .dropdown {
@@ -216,19 +244,21 @@ input[type=text] {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #d3d3d3; color:#3d3d3d;}
+.dropdown-content a:hover {background-color: #d3d3d3; color:#3d3d3d; }
 
 .dropdown:hover .dropdown-content {
   display: block;
+  border-radius: 0px 0px 20px 20px;
 }
 
 .dropdown:hover .dropbtn {
   background-color: #d3d3d3;
   color: #3d3d3d;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .genMap {
-  background-color: #3d3d3d; /* Green */
+  background-color: #3d3d3d;
   border: none;
   color: white;
   padding: 20px;
@@ -242,8 +272,55 @@ input[type=text] {
   border-radius: 50px;
 }
 
+.tab {
+ overflow: hidden;
+ border: 0px solid #ccc;
+}
+.tab button {
+ background-color: inherit;
+ float: left;
+ border: none;
+ outline: none;
+ cursor: pointer;
+ padding: 14px 16px;
+ transition: 0.3s;
+}
+
+.tab button:hover {
+ background-color: #ddd;
+}
+
+.tab button.active {
+ font-weight: bold;
+ color: #3d3d3d;
+ text-decoration: none;
+}
+
+.tabcontent {
+ display: none;
+ padding: 6px 12px;
+ border: 0px solid #ccc;
+ border-top: none;
+ font-family:Segoe UI;
+ font-weight: lighter;
+ height: 250px;
+ overflow-y: hidden;
+}
+.tabcontent:hover{
+  overflow-y: auto;
+  }
+.tablinks{
+  font-family:Segoe UI;
+  font-size: +1.5em;
+  font-weight: lighter;
+  text-decoration: underline #3d3d3d;
+}
+
 @media only screen and (max-width:1090px) {
-  /* For tablets: */
+
+  body{
+    overflow-y: auto;
+  }
   .main {
     width: 100%;
   }
@@ -251,17 +328,33 @@ input[type=text] {
     width: 100%;
     padding: 40px 65px 40px 65px;
   }
+  #togle {
+    visibility: hidden;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+  }
+  .mainc {
+    display: none;
+  }
+  .rightc {
+    width: 100%;
+  }
 }
 
 ::-webkit-input-placeholder {
    font-style: italic;
 }
+
 :-moz-placeholder {
    font-style: italic;
 }
+
 ::-moz-placeholder {
    font-style: italic;
 }
+
 :-ms-input-placeholder {
    font-style: italic;
 }

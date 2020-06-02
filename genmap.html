@@ -6,97 +6,125 @@
     <title>Fortnite Statistic Visualization</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/fsmgicon.png" type="image/png" sizes="64x64">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="script.js"></script>
-    <script src="p5.min.js"></script>
-    <script src="p5.clickable.js"></script>
-    <script>
-      console.log(fromApidata[0]);
-      console.log(fromApidata[1]);
-      console.log(fromApidata[2]);
-      console.log(fromApidata[3]);
-      console.log(fromApidata[4]);
-      console.log(fromApidata[5]);
-      console.log(fromApidata[6]);
-      console.log(fromApidata[7]);
-    </script>
+    <script src="processing.min.js"></script>
+    <script type="application/javascript">
 
+       var printMessage = function (msg) {
+           //document.getElementById('msg').innerHTML = "Message: " + msg;
+
+           if (msg==-11226824)
+            {
+              document.getElementById('item0').style.visibility = "visible";
+              document.getElementById('item0').style.visibility = "visible";
+              document.getElementById('item1').style.visibility = "visible";
+              document.getElementById('item2').style.visibility = "visible";
+              document.getElementById('item3').style.visibility = "hidden";
+              document.getElementById('msg').style.visibility = "hidden";
+
+              document.getElementById('item0').innerHTML = "<b>Statisic:</b> Current Season | <i>Lifetime</i>";
+              document.getElementById('item1').innerHTML = "<b>Player Outlived:</b> " + fromApidata[1] + " | <i>" + fromApidata[9] + "</i>";
+              document.getElementById('item2').innerHTML = "<b>Kills:</b> " + fromApidata[5] + " | <i>" + fromApidata[13] + "</i>";
+            }
+            else if (msg==-12811222)
+             {
+               document.getElementById('item0').style.visibility = "visible";
+               document.getElementById('item1').style.visibility = "visible";
+               document.getElementById('item2').style.visibility = "visible";
+               document.getElementById('item3').style.visibility = "hidden";
+               document.getElementById('msg').style.visibility = "hidden";
+
+               document.getElementById('item0').innerHTML = "<b>Statisic:</b> Current Season | <i>Lifetime</i>";
+               document.getElementById('item1').innerHTML = "<b>Win Rate:</b> " + fromApidata[2] + "% | <i>" + fromApidata[10] + "%</i>";
+               document.getElementById('item2').innerHTML = "<b>Match Played:</b> " + fromApidata[3] + " | <i>" + fromApidata[11] + "</i>";
+             }
+             else if (msg==-2366496 || msg==-16282729)
+              {
+                document.getElementById('item0').style.visibility = "visible";
+                document.getElementById('item1').style.visibility = "visible";
+                document.getElementById('item2').style.visibility = "visible";
+                document.getElementById('item3').style.visibility = "visible";
+                document.getElementById('msg').style.visibility = "hidden";
+
+                document.getElementById('item0').innerHTML = "<b>Statisic:</b> Current Season | <i>Lifetime</i>";
+                document.getElementById('item1').innerHTML = "<b>Placed Top 1:</b> " + fromApidata[8] + " | <i>" + fromApidata[16] + "</i>";
+                document.getElementById('item2').innerHTML = "<b>Placed Top 10:</b> " + fromApidata[7] + " | <i>" + fromApidata[15] + "</i>";
+                document.getElementById('item3').innerHTML = "<b>Placed Top 25:</b> " + fromApidata[6] + " | <i>" + fromApidata[14] + "</i>";
+              }
+            else {
+              document.getElementById('msg').style.visibility = "visible";
+              document.getElementById('msg').innerHTML = "<i>Wanna go for a swim, " +fromApidata[0]+ "?</i>";
+              document.getElementById('item0').style.visibility = "hidden";
+              document.getElementById('item1').style.visibility = "hidden";
+              document.getElementById('item2').style.visibility = "hidden";
+              document.getElementById('item3').style.visibility = "hidden";
+            }
+
+       };
+   </script>
   </head>
-  <body onclick="hidetooltips();">
-    <div class="main" style="width:56.25%;">
-      <script>
-      var tileSize = 16;
-      var scl = 0.07;
+  <body onclick="hidetooltips();" >
+    <div class="main">
 
-      var xRO, yRO, xTO, yTO, x, y;
-      var speed = 5;
-      var buffer = 10;
+      <script type="text/processing" data-processing-target="processing-canvas">
+      color[] cp = {
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea -16425071
+        color(10, 110, 171), //sea -16093525
+        color(84, 177, 56), //grass -12811222
+        color(60, 132, 42), //hill -11226824
+        color(219, 227, 224), //snow -2366496
+        color(7, 139, 151), //ice -16282729
+        color(7, 139, 151), //ice
+        color(7, 139, 151), //ice
+        color(7, 139, 151), //ice
+        color(7, 139, 151) //ice
+      };
 
-      var w, h;
+      void setup() {
+        size(864, 864);
+        loadPixels();
+        float d0 = random(50, 50); //Score
+        float d1 = random(50, 150); //Placed 3rd
+        float d2 = random(50, 200); //Placed Top 2nd
+        float d3 = random(50, 250); //Placed Top 1st
+        for (int j = 0; j < height; j++) {
+          for (int i = 0; i < width; i++) {
+            float n0 = noise(i/d0, j/d0);
+            float n1 = noise(i/d1, j/d1);
+            float n2 = noise(i/d2, j/d2);
+            float n3 = noise(i/d3, j/d3);
+            float n = 1 - (n0*0.1 + n1*0.1 + n2*0.1 + n3*0.7);
+            int k = int(n*16);
+            pixels[j*width + i ] = cp[k];
 
-      var tiles;
-
-      var sprites = new Array(4);
-      function setup() {
-        createCanvas(864, 864);
-        sprites[0] = loadImage("data/water.png");
-        sprites[1] = loadImage("data/sand.png");
-        sprites[2] = loadImage("data/grass.png");
-        sprites[3] = loadImage("data/forest.png");
-        var w = width/tileSize + buffer;
-        var h = height/tileSize + buffer;
-        tiles = w * h;
-        background("#0022FF");
-        noStroke();
-        colorMode(HSB);
-        drawTerrain();
-      }
-
-      function draw() {
-
-        drawTerrain();
-        image(sprites[1],10,10);
-      }
-
-      function drawTerrain() {
-        xRO = x % tileSize;
-        yRO = y % tileSize;
-        xTO = x/tileSize;
-        yTO = y/tileSize;
-        for(var i = 0; i < w; i ++) {
-          for(var j = 0; j < h; j ++) {
-            tiles[i + j * w] = getTile(i, j);
           }
         }
-        for(var i = 0; i < w; i ++) {
-          for(var j = 0; j < h; j ++) {
-            image(sprites[tiles[i + j * w]], (i - buffer/2) * tileSize - xRO, (j - buffer/2) * tileSize - yRO, tileSize, tileSize);
-          }
-        }
+        updatePixels();
       }
+      void draw() {
+        mouseOver();
 
-      function getTile(x,y) {
-        var v = noise((xTO + x) * scl, (yTO + y) * scl);
-        if(v < 0.35) {
-          //water
-          return 0;
-        } else if(v < 0.5) {
-          //sand
-          return 1;
-        } else if(v < 0.7) {
-          //grass
-          return 2;
-        } else {
-          //forest
-          return 3;
-        }
       }
-      </script></span>
+      void mouseOver(){
+        cursor(CROSS);
+        color c = get(mouseX,mouseY);
+        printMessage(c);
+      }
+     </script>
+     <canvas id="processing-canvas"></canvas>
     </div>
     <div class="right">
       <div id="top">
         <span id="header"><span id="annouceUser"></span></span>
-        <span="togle">
+        <span id="togle">
           <span class="tooltip">Full-Screen<span id="hide" class="tooltiptext">Best in Full-Screen</span></span>
             <label class="switch">
               <input type="checkbox" onclick="checktogle();">
@@ -108,21 +136,26 @@
       <div style="width:100%; margin-top:85px;">
       <div style="display:inline-block;"><p id="desc">Select mode:</p></div>
         <div class="dropdown" style="float:right;">
-          <button class="dropbtn">Solo</button>
+          <button class="dropbtn"><span style="margin-left:10px;">Solo</span><i class="material-icons" style="vertical-align:middle;">keyboard_arrow_down</i></button>
             <div class="dropdown-content">
             <a href="#">Solo</a>
             <a href="#">Duo</a>
-            <a href="#">Squad</a>
+            <a href="#" style="border-radius:0px 0px 20px 20px;">Squad</a>
             </div>
         </div>
       </div>
       <div id="err" style="text-align:left; color:#3d3d3d; margin-top:-20px;">Hover around the map to see specific statistics</div>
-      <div id="desc" style="margin-top: 95px;">
-      <span style="font-weight:bold;">Player Outlived</span><br/>
-      <span>Season: </span><span id="seas_s_Outlived"></span><br/>
-      <span>Lifetime: </span><span id="life_s_Outlived"></span>
+      <div id="desc" style="margin-top: 20px;">
+      <span id="item0"></span><br/>
+      <span id="item1" style="font-size:0.8em;"></span><br/>
+      <span id="item2" style="font-size:0.8em;"></span><br/>
+      <span id="item3" style="font-size:0.8em;"></span><br/>
+      <span id="msg"><i>Wanna for a swim?</i></span>
       </div>
-      <div id="crdt">Credit</div>
+      <div style="width:100%;">
+      <div style="display:inline-block; margin-top: 20px;"><button class="genMap" style="width:200px;" onclick="openHome();">Try Again</button></div>
+      <div id="crdt" style="display:inline-block;  margin-top: 0px;"><a href="credit.html">Credit</a></div>
+      <div>
     </div>
   </body>
   <script>
@@ -142,8 +175,6 @@
     //innerHTML
     document.getElementById('annouceUser').innerHTML = greetUser[announceRan];
     document.getElementById('displayUser').innerHTML = fromApidata[0];
-    document.getElementById('seas_s_Outlived').innerHTML = fromApidata[1];
-    document.getElementById('life_s_Outlived').innerHTML = fromApidata[2];
     var elem = document.documentElement;
     var tcheck;
     var ton = 0;
@@ -181,6 +212,9 @@
     }
     function hidetooltips() {
       document.getElementById('hide').style.display = "none";
+    }
+    function openHome() {
+      window.open("index.html","_self");
     }
   </script>
 </html>
