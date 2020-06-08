@@ -1,0 +1,31 @@
+## <img src="images/fsmgicon.png" style="border-width:0" width="30" style="vertical-align: middle;"/> **NOTES & CREDIT**
+
+## Reference
+
+## Source
+
+Web API<br />
+> Fornite-API by elreco : https://rapidapi.com/elreco/api/fortnite-api
+
+Font<br />
+> Burbank Big Condensed Bold by Fonts Market : https://www.fontsmarket.com/font-details/burbank-big-condensed-bold<br>
+> Lato by Google Fonts : https://fonts.google.com/specimen/Lato
+
+Icon<br />
+> Material Icons by Google : https://google.github.io/material-design-icons/
+
+Images<br />
+> Fortnite Chapter 2 Wallpaper : https://wallpapersden.com/fortnite-battle-royale-chapter-2-wallpaper<br>
+> Fortnite Llama Wallpaper : https://dlpng.com/png/6412080
+
+Licence<br />
+> Attribution-NonCommercial-NoDerivatives 4.0 International by Common Creative : https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+## Resource
+> Processing : https://processing.org/<br />
+> RapidApi : https://rapidapi.com/elreco/api/fortnite-api<br>
+> jQuery : https://jquery.com/
+
+## Appendix
+> Adobe XD Prototype : https://xd.adobe.com/view/3d5a2fc1-bee1-4c3a-4c59-31ebec249b9c-4b6b/ <br/>
+> Proposal & Progress Presentation : https://docs.google.com/presentation/d/1Fe1H20jUz5jI7e9vfIkcqHmffNkegfRClWvsTMKeYXw/edit?usp=sharing
