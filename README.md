@@ -8,13 +8,13 @@ Fortnite SMG is a web application designed to provide users a unique generated m
 #### 1. Who are you looking for?
 
 ```Enter Player Name``` in the text input form.<br><br>
-<img src="images/1stpage.jpg" style="width: 720px;"><br><br>
+<img src="images/1stpage.JPG" style="width: 720px;"><br><br>
 and click ```Generate Maps```.
 
 #### 2. Voilà, you got your own Fortnite 2D Map!
 
 Hover around the map to see specific statistics.<br><br>
-<img src="images/2ndpage.jpg" style="width: 720px;"><br><br>
+<img src="images/2ndpage.JPG" style="width: 720px;"><br><br>
 By default, this map is generate from Solo mode statistics, but you can select ```Solo```, ```Duo``` or ```Squad``` mode if you like to.<br><br> Click ```Try Again``` to use the web application with different Fortnite player statistics.
 
 ###### What is happening?
