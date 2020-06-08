@@ -10,7 +10,7 @@
     <script src="script.js"></script>
 
   </head>
-  <body onclick="hidetooltips();" >
+  <body>
     <div class="main">
         <img src="images/firstpageimg.png" style="width:100%;">
     </div>
@@ -21,7 +21,7 @@
       <h1>FORTNITE SMG</h1>
       <h3>Statistics Map Generator</h3>
       <p id="desc">SMG is an application to generate 2D maps from Fortnite profile database.</p>
-      <form onsubmit="opengenmap();">
+      <form>
             <input type="text" class="playerName" id="playerName" name="Player Name" placeholder="Enter Player Name" required="required">
             <div id="err">Player Not Found</div>
             <button class="genMap" type="submit">Generate Maps</button>
@@ -29,9 +29,4 @@
       <div id="crdt"><a href="credit.html">Credit</a></div>
     </div>
   </body>
-  <script>
-    function opengenmap() {
-      window.open("genmap.html","_self");
-    }
-  </script>
 </html>

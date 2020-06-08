@@ -97,6 +97,15 @@ color: #3d3d3d;
   font-size: small;
   text-align: right;
   color: red;
+  visibility:hidden;
+}
+#hov{
+  width: 100%;
+  font-style: italic;
+  font-size: small;
+  text-align: right;
+  color: red;
+  visibility:hidden;
 }
 
 .switch {

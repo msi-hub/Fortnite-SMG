@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Statistic Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/fsmgicon.png" type="image/png" sizes="64x64">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="data.js"></script>
+    <script src="processing.min.js"></script>
+    <script type="application/javascript">
+    var printMessage = function (msg) {
+         document.getElementById('msg').innerHTML = "Message: " + msg;
+
+         if (msg==-11226824)
+          {
+            document.getElementById('item0').style.visibility = "visible";
+            document.getElementById('item0').style.visibility = "visible";
+            document.getElementById('item1').style.visibility = "visible";
+            document.getElementById('item2').style.visibility = "visible";
+            document.getElementById('item3').style.visibility = "hidden";
+            document.getElementById('msg').style.visibility = "hidden";
+
+            document.getElementById('item0').innerHTML = "<b>Statistic:</b> Current Season | <i>Lifetime</i>";
+            document.getElementById('item1').innerHTML = "<b>Player Outlived:</b> " + fss_Outlived + " | <i>" + fls_Outlived + "</i>";
+            document.getElementById('item2').innerHTML = "<b>Player Kills:</b> " + fss_Kills + " | <i>" + fls_Kills + "</i>";
+          }
+          else if (msg==-12811222)
+           {
+             document.getElementById('item0').style.visibility = "visible";
+             document.getElementById('item1').style.visibility = "visible";
+             document.getElementById('item2').style.visibility = "visible";
+             document.getElementById('item3').style.visibility = "hidden";
+             document.getElementById('msg').style.visibility = "hidden";
+
+             document.getElementById('item0').innerHTML = "<b>Statistic:</b> Current Season | <i>Lifetime</i>";
+             document.getElementById('item1').innerHTML = "<b>Win Rate:</b> " + fss_Winrate + "% | <i>" + fls_Winrate + "%</i>";
+             document.getElementById('item2').innerHTML = "<b>Match Played:</b> " + fss_Matches + " | <i>" + fls_Matches + "</i>";
+           }
+           else if (msg==-2366496 || msg==-16282729)
+            {
+              document.getElementById('item0').style.visibility = "visible";
+              document.getElementById('item1').style.visibility = "visible";
+              document.getElementById('item2').style.visibility = "visible";
+              document.getElementById('item3').style.visibility = "visible";
+              document.getElementById('msg').style.visibility = "hidden";
+
+              document.getElementById('item0').innerHTML = "<b>Statistic:</b> Current Season | <i>Lifetime</i>";
+              document.getElementById('item1').innerHTML = "<b>Placed Top 1:</b> " + fss_Top01 + " | <i>" + fls_Top01 + "</i>";
+              document.getElementById('item2').innerHTML = "<b>Placed Top 10:</b> " + fss_Top10 + " | <i>" + fls_Top10 + "</i>";
+              document.getElementById('item3').innerHTML = "<b>Placed Top 25:</b> " + fss_Top25 + " | <i>" + fls_Top25 + "</i>";
+            }
+          else {
+            document.getElementById('msg').style.visibility = "visible";
+            document.getElementById('msg').innerHTML = "<i>You are drowning, " +ffa_Name+ "!</i>";
+            document.getElementById('item0').style.visibility = "hidden";
+            document.getElementById('item1').style.visibility = "hidden";
+            document.getElementById('item2').style.visibility = "hidden";
+            document.getElementById('item3').style.visibility = "hidden";
+          }
+
+     };
+   </script>
+  </head>
+  <body onclick="hidetooltips();">
+    <div class="main">
+      <script type="text/processing" data-processing-target="processing-canvas">
+      /* @pjs preload="data/mapgrids.png"; */
+      PImage grid,city1,city2;
+      color[] cp = {
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea
+        color(5, 95, 145), //deep sea -16425071
+        color(10, 110, 171), //sea -16093525
+        color(84, 177, 56), //grass -12811222
+        color(60, 132, 42), //hill -11226824
+        color(219, 227, 224), //snow -2366496
+        color(7, 139, 151), //ice -16282729
+        color(7, 139, 151), //ice
+        color(7, 139, 151), //ice
+        color(7, 139, 151), //ice
+        color(7, 139, 151) //ice
+      };
+
+      void setup() {
+        grid = loadImage("data/mapgrids.png");
+        size(864, 864);
+        loadPixels();
+        float d0 = random(fss_Outlived, fls_Outlived); //Player Outlived
+        float d1 = random(fss_Kills, fls_Kills); //Kill
+        float d2 = random(fss_Matches, fls_Matches); //Match Played
+        float d3 = random(fss_Winrate, fls_Winrate*100); //WinRate
+
+        for (int j = 0; j < height; j++) {
+          for (int i = 0; i < width; i++) {
+            float n0 = noise(i/d0, j/d0);
+            float n1 = noise(i/d1, j/d1);
+            float n2 = noise(i/d2, j/d2);
+            float n3 = noise(i/d3, j/d3);
+            float n = 1 - (n0*0.1 + n1*0.1 + n2*0.1 + n3*0.4);
+
+            float d = dist(i,j,width/2,height/2);
+            d = map(d,0,610,0,0.4);
+            n = n - d;
+
+            int k = int(n*16);
+            pixels[j*width + i ] = cp[k];
+
+          }
+        }
+        updatePixels();
+        image(grid,0,0,864,864);
+      }
+      void draw() {
+        mouseOver();
+      }
+      void mouseOver(){
+        cursor(CROSS);
+        color c = get(mouseX,mouseY);
+        printMessage(c)
+      }
+     </script>
+     <canvas id="processing-canvas"></canvas>
+    </div>
+    <div class="right">
+      <div id="top">
+        <span id="header"><span id="annouceUser"></span></span>
+        <span id="togle">
+          <span class="tooltip">Full-Screen<span id="hide" class="tooltiptext">Best in Full-Screen</span></span>
+            <label class="switch">
+              <input type="checkbox" onclick="checktogle();">
+              <span class="slider round"></span>
+            </label>
+        </span>
+      </div>
+      <h1 id="displayUser">FORTNITE SMG</h1>
+      <div style="width:100%; margin-top:85px;">
+      <div style="display:inline-block;"><p id="desc">Select mode:</p></div>
+        <div class="dropdown" style="float:right;">
+          <button class="dropbtn"><span style="margin-left:10px;">Solo</span><i class="material-icons" style="vertical-align:middle;">keyboard_arrow_down</i></button>
+            <div class="dropdown-content">
+            <a href="gensmap.html">Solo</a>
+            <a href="gendmap.html">Duo</a>
+            <a href="genqmap.html" style="border-radius:0px 0px 20px 20px;">Squad</a>
+            </div>
+        </div>
+      </div>
+      <div id="hov" style="text-align:left; color:#3d3d3d; margin-top:-20px; visibility: visible;">Hover around the map to see specific statistics</div>
+      <div id="desc" style="margin-top: 20px;">
+      <span id="item0"></span><br/>
+      <span id="item1" style="font-size:0.8em;"></span><br/>
+      <span id="item2" style="font-size:0.8em;"></span><br/>
+      <span id="item3" style="font-size:0.8em;"></span><br/>
+      <span id="msg"><i>Wanna for a swim?</i></span>
+      </div>
+      <div style="width:100%;">
+      <div style="display:inline-block; margin-top: 20px;"><button class="genMap" style="width:200px;" onclick="openHome();">Try Again</button></div>
+      <div id="crdt" style="display:inline-block;  margin-top: 0px;"><a href="credit.html">Credit</a></div>
+      <div>
+    </div>
+  </body>
+  <script>
+    var greetUser = [
+      "A wild "+ffa_Name+" has appeared!",
+      "OMG! It's "+ffa_Name+"!!!",
+      "Who raised "+ffa_Name+"? They deserve a medal!",
+      ffa_Name+", you’re one of a kind!",
+      "I like your style, "+ffa_Name+"!",
+      "Everyday is just BLAH without "+ffa_Name+"!",
+      ffa_Name+", a Zombie apocalypse survivor!",
+      ffa_Name+", your name suits you to a T!",
+      ffa_Name+" actually sounds like a Pokemon, it's perfect!",
+      "On a scale from 1 to 10, "+ffa_Name+" is an 11!"
+      ];
+    var announceRan = Math.floor(Math.random() * 10);
+    //innerHTML
+    document.getElementById('annouceUser').innerHTML = greetUser[announceRan];
+    document.getElementById('displayUser').innerHTML = ffa_Name;
+    var elem = document.documentElement;
+    var tcheck;
+    var ton = 0;
+    var toff = 1;
+    function checktogle() {
+      tcheck = 0;
+      if (tcheck == ton){
+        openFullscreen();
+        tcheck= 1;
+      }
+      if (tcheck != 0){
+        closeFullscreen();
+        tcheck = 0;
+      }
+    }
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();}
+      else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();}
+      else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();}
+      else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();}
+    }
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();}
+      else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();}
+      else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();}
+      else if (document.msExitFullscreen) {
+        document.msExitFullscreen();}
+    }
+    function hidetooltips() {
+      document.getElementById('hide').style.display = "none";
+    }
+    function openHome() {
+      window.localStorage.clear();
+      window.open("index.html","_self");
+    }
+
+  </script>
+</html>

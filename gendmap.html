@@ -8,67 +8,67 @@
     <link rel="icon" href="images/fsmgicon.png" type="image/png" sizes="64x64">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="script.js"></script>
+    <script src="data.js"></script>
     <script src="processing.min.js"></script>
     <script type="application/javascript">
+    var printMessage = function (msg) {
+         document.getElementById('msg').innerHTML = "Message: " + msg;
 
-       var printMessage = function (msg) {
-           //document.getElementById('msg').innerHTML = "Message: " + msg;
+         if (msg==-11226824)
+          {
+            document.getElementById('item0').style.visibility = "visible";
+            document.getElementById('item0').style.visibility = "visible";
+            document.getElementById('item1').style.visibility = "visible";
+            document.getElementById('item2').style.visibility = "visible";
+            document.getElementById('item3').style.visibility = "hidden";
+            document.getElementById('msg').style.visibility = "hidden";
 
-           if (msg==-11226824)
+            document.getElementById('item0').innerHTML = "<b>Statistic:</b> Current Season | <i>Lifetime</i>";
+            document.getElementById('item1').innerHTML = "<b>Player Outlived:</b> " + fsd_Outlived + " | <i>" + fld_Outlived + "</i>";
+            document.getElementById('item2').innerHTML = "<b>Player Kills:</b> " + fsd_Kills + " | <i>" + fld_Kills + "</i>";
+          }
+          else if (msg==-12811222)
+           {
+             document.getElementById('item0').style.visibility = "visible";
+             document.getElementById('item1').style.visibility = "visible";
+             document.getElementById('item2').style.visibility = "visible";
+             document.getElementById('item3').style.visibility = "hidden";
+             document.getElementById('msg').style.visibility = "hidden";
+
+             document.getElementById('item0').innerHTML = "<b>Statistic:</b> Current Season | <i>Lifetime</i>";
+             document.getElementById('item1').innerHTML = "<b>Win Rate:</b> " + fsd_Winrate + "% | <i>" + fld_Winrate + "%</i>";
+             document.getElementById('item2').innerHTML = "<b>Match Played:</b> " + fsd_Matches + " | <i>" + fld_Matches + "</i>";
+           }
+           else if (msg==-2366496 || msg==-16282729)
             {
-              document.getElementById('item0').style.visibility = "visible";
               document.getElementById('item0').style.visibility = "visible";
               document.getElementById('item1').style.visibility = "visible";
               document.getElementById('item2').style.visibility = "visible";
-              document.getElementById('item3').style.visibility = "hidden";
+              document.getElementById('item3').style.visibility = "visible";
               document.getElementById('msg').style.visibility = "hidden";
 
-              document.getElementById('item0').innerHTML = "<b>Statisic:</b> Current Season | <i>Lifetime</i>";
-              document.getElementById('item1').innerHTML = "<b>Player Outlived:</b> " + fromApidata[1] + " | <i>" + fromApidata[9] + "</i>";
-              document.getElementById('item2').innerHTML = "<b>Kills:</b> " + fromApidata[5] + " | <i>" + fromApidata[13] + "</i>";
+              document.getElementById('item0').innerHTML = "<b>Statistic:</b> Current Season | <i>Lifetime</i>";
+              document.getElementById('item1').innerHTML = "<b>Placed Top 1:</b> " + fsd_Top01 + " | <i>" + fld_Top01 + "</i>";
+              document.getElementById('item2').innerHTML = "<b>Placed Top 05:</b> " + fsd_Top05 + " | <i>" + fld_Top05 + "</i>";
+              document.getElementById('item3').innerHTML = "<b>Placed Top 12:</b> " + fsd_Top12 + " | <i>" + fld_Top12 + "</i>";
             }
-            else if (msg==-12811222)
-             {
-               document.getElementById('item0').style.visibility = "visible";
-               document.getElementById('item1').style.visibility = "visible";
-               document.getElementById('item2').style.visibility = "visible";
-               document.getElementById('item3').style.visibility = "hidden";
-               document.getElementById('msg').style.visibility = "hidden";
+          else {
+            document.getElementById('msg').style.visibility = "visible";
+            document.getElementById('msg').innerHTML = "<i>You are drowning, " +ffa_Name+ "!</i>";
+            document.getElementById('item0').style.visibility = "hidden";
+            document.getElementById('item1').style.visibility = "hidden";
+            document.getElementById('item2').style.visibility = "hidden";
+            document.getElementById('item3').style.visibility = "hidden";
+          }
 
-               document.getElementById('item0').innerHTML = "<b>Statisic:</b> Current Season | <i>Lifetime</i>";
-               document.getElementById('item1').innerHTML = "<b>Win Rate:</b> " + fromApidata[2] + "% | <i>" + fromApidata[10] + "%</i>";
-               document.getElementById('item2').innerHTML = "<b>Match Played:</b> " + fromApidata[3] + " | <i>" + fromApidata[11] + "</i>";
-             }
-             else if (msg==-2366496 || msg==-16282729)
-              {
-                document.getElementById('item0').style.visibility = "visible";
-                document.getElementById('item1').style.visibility = "visible";
-                document.getElementById('item2').style.visibility = "visible";
-                document.getElementById('item3').style.visibility = "visible";
-                document.getElementById('msg').style.visibility = "hidden";
-
-                document.getElementById('item0').innerHTML = "<b>Statisic:</b> Current Season | <i>Lifetime</i>";
-                document.getElementById('item1').innerHTML = "<b>Placed Top 1:</b> " + fromApidata[8] + " | <i>" + fromApidata[16] + "</i>";
-                document.getElementById('item2').innerHTML = "<b>Placed Top 10:</b> " + fromApidata[7] + " | <i>" + fromApidata[15] + "</i>";
-                document.getElementById('item3').innerHTML = "<b>Placed Top 25:</b> " + fromApidata[6] + " | <i>" + fromApidata[14] + "</i>";
-              }
-            else {
-              document.getElementById('msg').style.visibility = "visible";
-              document.getElementById('msg').innerHTML = "<i>Wanna go for a swim, " +fromApidata[0]+ "?</i>";
-              document.getElementById('item0').style.visibility = "hidden";
-              document.getElementById('item1').style.visibility = "hidden";
-              document.getElementById('item2').style.visibility = "hidden";
-              document.getElementById('item3').style.visibility = "hidden";
-            }
-
-       };
+     };
    </script>
   </head>
-  <body onclick="hidetooltips();" >
+  <body onclick="hidetooltips();">
     <div class="main">
-
       <script type="text/processing" data-processing-target="processing-canvas">
+      /* @pjs preload="data/mapgrids.png"; */
+      PImage grid,city1,city2;
       color[] cp = {
         color(5, 95, 145), //deep sea
         color(5, 95, 145), //deep sea
@@ -89,34 +89,41 @@
       };
 
       void setup() {
+        grid = loadImage("data/mapgrids.png");
         size(864, 864);
         loadPixels();
-        float d0 = random(50, 50); //Score
-        float d1 = random(50, 150); //Placed 3rd
-        float d2 = random(50, 200); //Placed Top 2nd
-        float d3 = random(50, 250); //Placed Top 1st
+        float d0 = random(fsd_Outlived, fld_Outlived); //Player Outlived
+        float d1 = random(fsd_Kills, fld_Kills); //Kill
+        float d2 = random(fsd_Matches, fld_Matches); //Match Played
+        float d3 = random(fsd_Winrate, fld_Winrate*100); //WinRate
+
         for (int j = 0; j < height; j++) {
           for (int i = 0; i < width; i++) {
             float n0 = noise(i/d0, j/d0);
             float n1 = noise(i/d1, j/d1);
             float n2 = noise(i/d2, j/d2);
             float n3 = noise(i/d3, j/d3);
-            float n = 1 - (n0*0.1 + n1*0.1 + n2*0.1 + n3*0.7);
+            float n = 1 - (n0*0.1 + n1*0.1 + n2*0.1 + n3*0.4);
+
+            float d = dist(i,j,width/2,height/2);
+            d = map(d,0,610,0,0.4);
+            n = n - d;
+
             int k = int(n*16);
             pixels[j*width + i ] = cp[k];
 
           }
         }
         updatePixels();
+        image(grid,0,0,864,864);
       }
       void draw() {
         mouseOver();
-
       }
       void mouseOver(){
         cursor(CROSS);
         color c = get(mouseX,mouseY);
-        printMessage(c);
+        printMessage(c)
       }
      </script>
      <canvas id="processing-canvas"></canvas>
@@ -136,15 +143,15 @@
       <div style="width:100%; margin-top:85px;">
       <div style="display:inline-block;"><p id="desc">Select mode:</p></div>
         <div class="dropdown" style="float:right;">
-          <button class="dropbtn"><span style="margin-left:10px;">Solo</span><i class="material-icons" style="vertical-align:middle;">keyboard_arrow_down</i></button>
+          <button class="dropbtn"><span style="margin-left:10px;">Duo</span><i class="material-icons" style="vertical-align:middle;">keyboard_arrow_down</i></button>
             <div class="dropdown-content">
-            <a href="#">Solo</a>
-            <a href="#">Duo</a>
-            <a href="#" style="border-radius:0px 0px 20px 20px;">Squad</a>
+              <a href="gensmap.html">Solo</a>
+              <a href="gendmap.html">Duo</a>
+              <a href="genqmap.html" style="border-radius:0px 0px 20px 20px;">Squad</a>
             </div>
         </div>
       </div>
-      <div id="err" style="text-align:left; color:#3d3d3d; margin-top:-20px;">Hover around the map to see specific statistics</div>
+      <div id="hov" style="text-align:left; color:#3d3d3d; margin-top:-20px; visibility: visible;">Hover around the map to see specific statistics</div>
       <div id="desc" style="margin-top: 20px;">
       <span id="item0"></span><br/>
       <span id="item1" style="font-size:0.8em;"></span><br/>
@@ -160,21 +167,21 @@
   </body>
   <script>
     var greetUser = [
-      "A wild "+fromApidata[0]+" has appeared!",
-      "OMG! It's "+fromApidata[0]+"!!!",
-      "Who raised "+fromApidata[0]+"? They deserve a medal!",
-      fromApidata[0]+", you’re one of a kind!",
-      "I like your style, "+fromApidata[0]+"!",
-      "Everyday is just BLAH without "+fromApidata[0]+"!",
-      fromApidata[0]+", a Zombie apocalypse survivor!",
-      fromApidata[0]+", your name suits you to a T!",
-      fromApidata[0]+" actually sounds like a Pokemon, it's perfect!",
-      "On a scale from 1 to 10, "+fromApidata[0]+" is an 11!"
+      "A wild "+ffa_Name+" has appeared!",
+      "OMG! It's "+ffa_Name+"!!!",
+      "Who raised "+ffa_Name+"? They deserve a medal!",
+      ffa_Name+", you’re one of a kind!",
+      "I like your style, "+ffa_Name+"!",
+      "Everyday is just BLAH without "+ffa_Name+"!",
+      ffa_Name+", a Zombie apocalypse survivor!",
+      ffa_Name+", your name suits you to a T!",
+      ffa_Name+" actually sounds like a Pokemon, it's perfect!",
+      "On a scale from 1 to 10, "+ffa_Name+" is an 11!"
       ];
     var announceRan = Math.floor(Math.random() * 10);
     //innerHTML
     document.getElementById('annouceUser').innerHTML = greetUser[announceRan];
-    document.getElementById('displayUser').innerHTML = fromApidata[0];
+    document.getElementById('displayUser').innerHTML = ffa_Name;
     var elem = document.documentElement;
     var tcheck;
     var ton = 0;
@@ -214,7 +221,9 @@
       document.getElementById('hide').style.display = "none";
     }
     function openHome() {
+      window.localStorage.clear();
       window.open("index.html","_self");
     }
+
   </script>
 </html>
