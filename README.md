@@ -27,4 +27,37 @@ This work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
 Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 
-###### Take this portal if you are looking for <a href="credit.txt">Fortnite-SMG's Notes & Credit</a>.
+## Reference
+>* Barney Whiteman. [Barney]. (2018, June 18). Coding Challenge #10 2D Terrain Generation using Perlin Noise. Youtube. https://www.youtube.com/watch?v=jv6YT9pPIHw<br>
+>* Daniel Shiffman. (n.d.). Introduction. The Nature of Code. https://natureofcode.com/book/introduction/<br>
+>* Daniel Shiffman. [The Coding Train]. (2016, May 4). Coding Challenge #11: 3D Terrain Generation with Perlin Noise in Processing. Youtube. https://www.youtube.com/watch?v=IKB1hWWedMk<br>
+>* noise(). (n.d.). Processing. https://processing.org/reference/noise_.html<br>
+>* Yvan Scher. (2017). Playing with Perlin Noise: Generating Realistic Archipelagos. Medium. https://medium.com/@yvanscher/playing-with-perlin-noise-generating-realistic-archipelagos-b59f004d8401
+
+## Source
+
+Web API
+> Fornite-API by elreco : https://rapidapi.com/elreco/api/fortnite-api
+
+Font
+> Burbank Big Condensed Bold by Fonts Market : https://www.fontsmarket.com/font-details/burbank-big-condensed-bold
+> Lato by Google Fonts : https://fonts.google.com/specimen/Lato
+
+Icon
+> Material Icons by Google : https://google.github.io/material-design-icons/
+
+Images
+> Fortnite Chapter 2 Wallpaper : https://wallpapersden.com/fortnite-battle-royale-chapter-2-wallpaper
+> Fortnite Llama Wallpaper : https://dlpng.com/png/6412080
+
+Licence
+> Attribution-NonCommercial-NoDerivatives 4.0 International by Common Creative : https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+## Resource
+> Processing : https://processing.org/
+> RapidApi : https://rapidapi.com/elreco/api/fortnite-api
+> jQuery : https://jquery.com/
+
+## Appendix
+> Adobe XD Prototype : https://xd.adobe.com/view/3d5a2fc1-bee1-4c3a-4c59-31ebec249b9c-4b6b/
+> Proposal & Progress Presentation : https://docs.google.com/presentation/d/1Fe1H20jUz5jI7e9vfIkcqHmffNkegfRClWvsTMKeYXw/edit?usp=sharing
