@@ -15,7 +15,7 @@ and click ```Generate Maps```.
 
 Hover around the map to see specific statistics.<br><br>
 <img src="images/2ndpage.JPG" style="width: 720px;"><br><br>
-By default, this map is generate from Solo mode statistics, but you can select ```Solo```, ```Duo``` or ```Squad``` mode if you like to.<br><br> Click ```Try Again``` to use the web application with different Fortnite player statistics.
+By default, this map is generate from Solo mode statistics, but you can select ```Solo```, ```Duo``` or ```Squad``` mode if you like to.<br><br> Click ```Try Again``` to use the web application with different Fortnite player account.
 
 ###### What is happening?
 > So, the input that being request by you will be integrated with web API engine and they get the player statistics from Fortnite database. Based on mode, the data will be use to generate the map.<br><br><img src="images/whathappen.jpg" style="width: 720px;">
