@@ -1,6 +1,6 @@
 ## <img src="images/fsmgicon.png" style="border-width:0" width="30" style="vertical-align: middle;"/> **FORTNITE-SMG**
-> An Advanced Web And Interactive Practice Project by Muhammad Syafiq Imran
 ### SMG is an application to generate 2D maps from Fortnite profile database.
+> An Advanced Web And Interactive Practice Project by Muhammad Syafiq Imran
 
 ## Get Started
 Fortnite SMG is a web application designed to provide users a unique generated map from the statistic record of Fortnite players across the globe. In this web application, user will able to interact with the output to observe a specific set of data.
