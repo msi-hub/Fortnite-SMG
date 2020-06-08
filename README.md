@@ -20,8 +20,6 @@ By default, this map is generate from Solo mode statistics, but you can select `
 ###### What is happening?
 > So, the input that being request by you will be integrated with web API engine and they get the player statistics from Fortnite database. Based on mode, the data will be use to generate the map.<br><br><img src="images/whathappen.jpg" style="width: 720px;">
 
-##### License
-
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br>
 This work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
