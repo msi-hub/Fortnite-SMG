@@ -28,11 +28,11 @@ This work is licensed under a
 Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 
 ## Reference
->* Barney Whiteman. [Barney]. (2018, June 18). Coding Challenge #10 2D Terrain Generation using Perlin Noise. Youtube. https://www.youtube.com/watch?v=jv6YT9pPIHw<br>
->* Daniel Shiffman. (n.d.). Introduction. The Nature of Code. https://natureofcode.com/book/introduction/<br>
->* Daniel Shiffman. [The Coding Train]. (2016, May 4). Coding Challenge #11: 3D Terrain Generation with Perlin Noise in Processing. Youtube. https://www.youtube.com/watch?v=IKB1hWWedMk<br>
->* noise(). (n.d.). Processing. https://processing.org/reference/noise_.html<br>
->* Yvan Scher. (2017). Playing with Perlin Noise: Generating Realistic Archipelagos. Medium. https://medium.com/@yvanscher/playing-with-perlin-noise-generating-realistic-archipelagos-b59f004d8401
+> Barney Whiteman. [Barney]. (2018, June 18). *Coding Challenge #10 2D Terrain Generation using Perlin Noise*. Youtube. <br>&nbsp;&nbsp;&nbsp;&nbsp;https://www.youtube.com/watch?v=jv6YT9pPIHw<br>
+> Daniel Shiffman. (n.d.). *Introduction*. The Nature of Code.<br>&nbsp;&nbsp;&nbsp;&nbsp;https://natureofcode.com/book/introduction/<br>
+> Daniel Shiffman. [The Coding Train]. (2016, May 4). *Coding Challenge #11: 3D Terrain Generation with Perlin Noise in <br>&nbsp;&nbsp;&nbsp;&nbsp;Processing*. Youtube. https://www.youtube.com/watch?v=IKB1hWWedMk<br>
+> *noise()*. (n.d.). Processing.<br>&nbsp;&nbsp;&nbsp;&nbsp;https://processing.org/reference/noise_.html<br>
+> Yvan Scher. (2017). *Playing with Perlin Noise: Generating Realistic Archipelagos*. Medium.<br>&nbsp;&nbsp;&nbsp;&nbsp;https://medium.com/@yvanscher/playing-with-perlin-noise-generating-realistic-archipelagos-b59f004d8401
 
 ## Source
 
