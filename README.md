@@ -1,5 +1,5 @@
 ## <img src="images/fsmgicon.png" style="border-width:0" width="30" style="vertical-align: middle;"/> **FORTNITE-SMG**
-### SMG is an application to generate 2D maps from Fortnite profile database.
+### Statistics Map Generator(SMG) is an application to generate 2D maps from Fortnite profile database.
 > An Advanced Web And Interactive Practice Project by Muhammad Syafiq Imran
 
 ### SMG Features
