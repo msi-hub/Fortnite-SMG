@@ -3,7 +3,7 @@
 > An Advanced Web And Interactive Practice Project by Muhammad Syafiq Imran
 
 ### SMG Features
-> - [x] Access to the latest desired Fortnite player statistics.
+- [x] Access to the latest desired Fortnite player statistics.
 - [x] Unique interactive map generator for three popular mode.
 - [x] Announcer, full-screen recommendation and responsive layout.
 
